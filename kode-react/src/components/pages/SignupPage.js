@@ -13,10 +13,6 @@ class SignupPage extends React.Component{
     render(){
         return(
             <div>
-                <Header as='h2' style={{color: 'white'}} textAlign='center'>
-                    <Icon style={{color: 'white'}} name='signup' />
-                    {' '}Sign up!
-                </Header>
 
                 <SignupForm  submit ={this.submit}/>
 

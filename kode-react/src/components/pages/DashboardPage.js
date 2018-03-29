@@ -5,12 +5,13 @@ import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types"
 import CourseList from "../search/CourseList";
+import { Header, Icon, Label } from 'semantic-ui-react'
 
 const DashboardPage = ({isAuthenticated, logout} ) => (
 
     <div>
         <div>
-            <Jumbotron>
+            {/* <Jumbotron>
                 <h1>My Dashboard</h1>
                 <p>{isAuthenticated ? (
                     <Button bsStyle="danger" onClick={() => logout()}>Logout</Button>
@@ -26,10 +27,20 @@ const DashboardPage = ({isAuthenticated, logout} ) => (
 
             <div>
                 <Link to = "/AllCourses"> View All Courses </Link>
-            </div>
+            </div> */}
+
+            <Header as='h2' icon textAlign='center'>
+                <Icon circular inverted color='yellow' name='users' />
+                <Header.Content style={{color:"#fcbc0c"}}>
+                   Dashboard
+                </Header.Content>
+            </Header>
+            <CourseList/>
+
         </div>
 
-    </div>
+        </div>
+
 
 
 

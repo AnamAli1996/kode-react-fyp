@@ -25,8 +25,8 @@ const NavigationBar = ({isAuthenticated, logout} ) => (
 
                         {isAuthenticated ? (
                             <div>
-                                <Button bsStyle="link" onClick={() => logout()}>Logout</Button>
                                 <a href="/dashboard"> Dashboard </a>
+                                <a href="/" onClick={() => logout()}> Logout </a>
                             </div>
                             ):(
                                 <div>

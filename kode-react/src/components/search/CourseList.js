@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Autocomplete from 'react-autocomplete'
+import {Label, Icon, Button} from "semantic-ui-react"
 import image from '../../search-icon.png'
 
 
@@ -58,20 +59,23 @@ export default class CourseList extends React.Component {
         console.log(this.props.courseList);
         console.log(filteredContacts);
         let styles ={
-            width: "20px",
-            height: "20px"
+            width: "13px",
+            height: "13px",
+            color: "#fcbc0c",
+            marginTop: "17px"
         };
         return(
 
 
-            <div>
+            <div style={{float:"right"}}>
 
                 <div>
-                    <label> Search for Course </label>
+                    <div >
+                        <Label as='a' color='yellow' ribbon>Search for a course</Label>
                 </div>
 
 
-                <Autocomplete
+                <Autocomplete style={{height: "78px"}}
                 items={this.state.courseList}
                 shouldItemRender={(course, value) => course.name.toLowerCase().indexOf(value.toLowerCase()) > -1}
                 getItemValue={ (course) => course.name}
@@ -82,13 +86,18 @@ export default class CourseList extends React.Component {
                     </div>
                 }
                     value={this.state.value}
+                    placeholder="Search for a course"
                     onChange={(e) => this.setState({value: e.target.value})}
                     onSelect={(value) => this.setState({value})}
 
 
                 />
-                <button onClick={() => this.myFunction(this.state.search)}><img  src={image} style={styles} alt="my image"/></button>
 
+                <Button icon color="yellow" onClick={() => this.myFunction(this.state.search)}>
+                    <Icon color="black" flipped='horizontally' name='search' /></Button>
+                </div>
+                <br />
+                <Label as='a' color='orange' tag href="/AllCourses">View All Courses</Label>
             </div>
         );
     }
